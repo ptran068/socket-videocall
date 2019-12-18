@@ -212,7 +212,7 @@
 	const roomId = '<%= room._id %>';
 	const hosts = $(location).attr('host')
 
-	const socket = io.connect('https://phong-socket.herokuapp.com', { query: `userId=${userId}` });
+	const socket = io.connect(hosts, { query: `userId=${userId}` });
 
 
 	const peer = new Peer({key: 'peerjs', host: 'phong-socket.herokuapp.com', secure: true, port: 443});
