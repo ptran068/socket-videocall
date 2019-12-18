@@ -1,0 +1,582 @@
+
+.container {
+    width: 100%;
+    padding: 0px;
+}
+/*--------------------------------pháº§n hiá»ƒn thá»‹ danh sÃ¡ch cÃ¡c cuá»™c há»™i thoáº¡i bÃªn trÃ¡i-----------------*/
+.container .list-rooms {
+    width: 25%;
+    float: left;
+    border-right: 1px solid #ececec;
+}
+
+.container .list-rooms .list-room-box {
+    height: 27.5rem;
+    overflow: hidden;
+}
+.container .list-rooms .list-room-box:hover{
+	overflow-y: scroll;
+}
+.container .list-rooms .action-bar {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #ececec;
+}
+.container .list-rooms .action-bar .custom-btn{
+    height: 35px;
+    width: 35px;
+    font-size: 100%;
+    text-align: center;
+    line-height: 37px;
+    float: right;
+    outline: none;
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 0px;
+    margin-top: 14px;
+    background-color: #ececec;
+    cursor: pointer;
+}
+
+
+
+.container .list-rooms .search-bar{
+	width: 100%;
+	padding: 5px;
+	margin: 0px;
+}
+
+.container .list-rooms .search-bar .wrapper-form-search {
+    height: 40px;
+    width: 80%;
+    display: table;
+    margin-top: 10px;
+    border: 1px solid #ececec;
+    border-radius: 20px;
+    background-color: #ececec;
+    box-sizing: border-box;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.container .list-rooms .search-bar .wrapper-form-search input {
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    height: 40px;
+    width: 73%;
+    padding: 0px;
+    padding-left: 10px;
+    outline: none;
+    background-color: initial;
+}
+
+.container .list-rooms .search-bar .wrapper-form-search button.btn {
+    background-color: white;
+    height: 40px;
+    font-size: 120%;
+    border-radius: 0px 20px 20px 0px;
+    outline: none;
+    color: #a5a0a0;
+    background-color: inherit;
+    float: right;
+}
+
+.container .list-rooms .search-bar .row-room {
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.container .list-rooms .search-bar .row-room .avatar-room {
+    width: 50px;
+    height: 50px;
+    float: left;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.container .list-rooms .search-bar .row-room .name-room {float: left;height: 50px;}
+
+.container .list-rooms .search-bar .row-room .name-room .name {
+    color: #e78200;
+}
+
+.container .list-rooms .search-bar .row-room .name-room .last-activity {
+    font-size: 80%;
+    color: gray;
+}
+
+.row-room.current{
+	background-color: #ececec;
+}
+/*---------------------------pháº§n hiá»ƒn thá»‹ ná»™i dá»¥ng cuá»™c há»™i thoáº¡i--------------------------------*/
+.container .content-conversation {
+    width: 75%;
+    height: 35.5rem;
+    float: left;
+}
+
+.content-conversation .room-header {
+    height: 60px;
+    border-bottom: 1px solid #ececec
+}
+
+.content-conversation .room-header .avatar {
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin: 5px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.content-conversation .room-header .name-room {
+    height: 60px;
+    line-height: 60px;
+    padding-left: 10px;
+    float: left;
+    font-weight: bold;
+    color: #e78200;
+}
+.content-conversation .room-header  .status-activity {
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: #6cd26c;
+    border-radius: 50%;
+    margin-top: 25px;
+    /* position: absolute; */
+    margin-left: 20px;
+}
+.container .content-conversation .scroll-area-chat {
+    width: 70%;
+    border-right: 1px solid #ececec;
+}
+
+.container .content-conversation .scroll-area-chat .content {
+    height: 28rem;
+    overflow-y: scroll;
+}
+
+
+
+.container .content-conversation .scroll-area-chat .bar-type-message {
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    /* background-color: gray; */
+    /* top: 10px; */
+}
+
+.container .content-conversation .scroll-area-chat .bar-type-message input[type=text] {
+    width: 80%;
+    margin-left: 10%;
+    height: 40px;
+    border-radius: 20px;
+    background: #ececec;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
+
+.container .content-conversation .scroll-area-chat .bar-type-message .choose-file {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    /* float: left; */
+    line-height: 40px;
+    margin-left: 3%;
+}
+
+
+.container .content-conversation .scroll-area-chat .bar-type-message .choose-file .fake-b {
+    position: absolute;
+    z-index: 69;
+    cursor: pointer;
+    font-size: 150%;
+}
+
+.container .content-conversation .scroll-area-chat .bar-type-message .choose-file  input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    z-index: 70;
+    color:lightskyblue;
+}
+
+.container .content-conversation .scroll-area-chat .content .list-message .message {
+   min-height: 35px;
+}
+
+.container .content-conversation .scroll-area-chat .content .list-message .message .a-line-mess {
+    width: 100%;
+    display: inline-block;
+   	padding-right: 30px;
+   	padding-left: 30px;
+   	position: relative;
+}
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-fr-other-ple {
+    min-height: 35px;
+    line-height: 35px;
+    text-align: left;
+    float: left;
+    max-width: 300px;
+    border-radius: 20px;
+    background-color: #ececec;
+     padding: 7px;
+}
+
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-fr-other-ple span {
+	color: black;
+    font-size: 90%;
+}
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-b-y {
+    min-height: 35px;
+    line-height: 35px;
+    text-align: right;
+    float: right;
+    max-width: 300px;
+    background-color: #c512af;
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-b-y span {
+   	color: white;
+    font-size: 90%;
+}
+
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-b-y .avatar-mark {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 4px;
+    bottom:0px;
+ }
+
+.container .content-conversation .scroll-area-chat .content .list-message .m-bs-fr-other-ple .avatar-mark {
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 4px;
+    top:0px;
+    font-size: 80%;
+    color: mediumvioletred;
+    margin-left: 2px;
+ }
+
+.container .content-conversation .scroll-area-chat .content  .img-gif-typing{
+	display: table;
+	padding-left: 30px;
+
+}
+
+.container .content-conversation .scroll-area-chat .content  .img-gif-typing img {
+    height: 30px;
+    border-radius: 30px;
+}
+
+
+/*---------------------------------------dialog--------------------------------*/
+.dialog-2 {
+    width: 100%;
+    height: 36rem;
+    display: fi;
+    position: fixed;
+    background-color: #0000009c;
+    box-sizing: border-box;
+    padding-top: 20px;
+    display: none;
+}
+
+.container .content-conversation .scroll-area-chat .bar-view-image-selected .send-image {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 150%;
+    background: orange;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+}
+
+.container .content-conversation .scroll-area-chat  .bar-view-image-selected {
+    position: absolute;
+    height: 80px;
+    width: 200px;
+    background: white;
+    bottom: 60px;
+    box-shadow: 0px -5px 7px 0px;
+    border-radius: 2px;
+    display: none;
+}
+
+.container .content-conversation .scroll-area-chat  .bar-view-image-selected img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.dialog-2  .dialog-container-2 {
+    width: 50%;
+    height: 34rem;
+    background-color: white;
+    border-radius: 20px;
+    padding:10px;
+}
+
+.dialog-2  .dialog-container-2 .bar-set-name-room	{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	color: #e78200;
+	border-bottom: 1px solid #ececec;
+}
+
+.dialog-2  .dialog-container-2 .bar-set-name-room input[type=text]{
+	border: none;
+	outline: none;
+	width: 80%;
+	height: 45px;
+}
+
+.dialog-2  .dialog-container-2  .bar-search-member {
+    width: 100%;
+    padding: 5px;
+    height: 60px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.dialog-2  .dialog-container-2  .bar-search-member input[type="text"] {
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ececec;
+    padding-left: 10px;
+    outline: none;
+}
+
+.dialog-2  .dialog-container-2 .member-area {
+	border-bottom: 1px solid #ececec;
+	display: table;
+    width: 100%;
+}
+
+.dialog-2  .dialog-container-2 .list-result {
+    width: 60%;
+    height: 20rem;
+    overflow-y: scroll;
+    float: left;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.dialog-2  .dialog-container-2  .list-result .row-user-result {
+    width: 100%;
+    height: 60px;
+    display: table;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.dialog-2  .dialog-container-2  .list-result .row-user-result:hover{
+	background-color: #ececec;
+}
+
+.author {
+    font-size: 80%;
+    color: mediumvioletred;
+    margin-left: 5px;
+}
+
+
+.dialog-2  .dialog-container-2 .list-result .row-user-result .user-avatar {
+    height: 50px;
+    width: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    float: left;
+}
+
+.dialog-2  .dialog-container-2 .list-result .row-user-result  .name-user {
+    height: 50px;
+    float: left;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.dialog-2  .dialog-container-2 .list-result .row-user-result .checkbox {
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 20px;
+}
+.dialog-2  .dialog-container-2 .list-member-selected{
+    width: 40%;
+    height: 20rem;
+    overflow-y: scroll;
+    float: left;
+    border-left: 1px solid #ececec;
+}
+
+
+
+
+.dialog-2  .dialog-container-2  .list-member-selected .row-user-result {
+    width: 100%;
+    height: 60px;
+    display: table;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.dialog-2  .dialog-container-2 .list-member-selected .row-user-result .user-avatar {
+    height: 50px;
+    width: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    float: left;
+}
+
+.dialog-2  .dialog-container-2 .list-member-selected .row-user-result  .name-user {
+    height: 50px;
+    float: left;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.dialog-2  .dialog-container-2 .list-member-selected .row-user-result .remove-member {
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 5px;
+}
+
+.dialog-2  .dialog-container-2 .list-member-selected .row-user-result .remove-member button{
+	margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    line-height: 10px;
+	display: none;
+}
+
+.dialog-2  .dialog-container-2  .list-member-selected .row-user-result:hover{
+	background-color: #ececec;
+}
+
+.dialog-2  .dialog-container-2  .list-member-selected .row-user-result:hover .remove-member button{
+	display: initial;
+}
+
+
+.dialog-2  .dialog-container-2 .action-bar {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+.imageBase64 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-call {
+    top: 0px;
+    width: 100%;
+    min-height: 90%;
+    position: fixed;
+    z-index: 1000;
+    background: #0000009c;
+}
+
+.video-call video#localStream {
+    position: absolute;
+    z-index: 1002;
+    top: 0px;
+    right: 0px;
+}
+
+.video-call video#remoteStream {
+    position: absolute;
+    width: 100%!important;
+    z-index: 1001;
+}
+
+.dialog-2  .dialog-container-2 .action-bar .btn{
+	float: right;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	margin-left: 10px;
+	outline: none;
+}
+
+.video-call .btn-close-video-call {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 200%;
+    color: white;
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    background: red;
+    z-index: 1003;
+    transition: 0.8s;
+}
+
+.btn-close-video-call:hover {
+    opacity: 1;
+}
+#comment-submit {
+    /* border-radius: 15%; */
+    /* background-color: palevioletred; */
+    background: none;
+    border: none;
+    color: #e643c3;
+    font-size: 150%;
+    margin-left: 15px;
+    outline: none;
+}

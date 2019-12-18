@@ -1,0 +1,38 @@
+h1 {
+    font-size: 200px;
+}
+
+body {
+    background-image: url("../image/index.jpg");
+}
+
+.btn {
+    height: 100%;
+width: 100%;
+}
+#div1 {
+height: 50px;
+width: 200px;
+margin-top: 300px;
+margin-left: 800px;
+
+}
+
+#div2 {
+    height: 50px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 800px;
+    
+}
+
+#div3 {
+    height: 50px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 800px;
+        
+}
+.col-sm-4 {
+    margin-top: 50px;
+}

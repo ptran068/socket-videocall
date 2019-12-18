@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="/chat/vendor/bootstrap.css">
+	<link rel="stylesheet" href="/chat/vendor/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/chat/style/common.css">
+	<link rel="stylesheet" type="text/css" href="/chat/style/header.css">
+ 	<link rel="stylesheet" href="/chat/style/room.css">
+	 <script src="/socket.io.js"></script>
+	 <script src="/peer.js"></script> 
+	 <!-- <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script> -->
+
+</head>
+<body>
+
+	<!-- START HEADER -->
+	<div class="header ">
+		<div class="menu-bar">
+			<ul class="list-item" id="myTab" role="tablist">
+			  <li class="item" style="padding-top: 5px;">
+			   	<div class="logo" style="background-image: url(/imageupload//logo.png)"></div>
+			  </li>
+			</ul>
+		</div>
+		<div class="block-hu-user">
+			
+			<div class="user-name">
+				
+			</div>
+			<div class="avatar" style="background-image: url(/imageupload/<%= room.avatar%>);">
+			</div>
+			<div class="menu-right-dropdown" isShow="0">
+				<div class="triangle"></div>
+				<ul class="content-dropdown-menu">
+					
+					<li class="item-dropdown-menu-1">
+						<div> <a href="/user/log-out">Log out</a></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="dialog">
+			<div class="dialog-container mx-auto col-lg-4 col-md-8 col-sm-10 col-12">
+				<form>
+					<div class="dialog-header">Tải ảnh lên từ máy của bạn</div>
+					<div class="dialog-content mx-auto">
+						
+						<div class="btn-fake-choose-file">Chọn ảnh</div>
+						<input type="file" name="avatar" class="fileContainer"/>
+						<!-- <div class="show-image-choosed mx-auto"></div> -->
+					</div>
+					<div class="dialog-action">
+						<button type="submit" class="btn btn-warning btnsubmit">Thay đổi</button>
+						<button type="button" class="btn btn-dark btn-cancel"> Hủy </button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<!-- END HEADER -->
+
+	<!-- ROOM-content -->
+	<div class="container">
+		<!-- left frame -->
+		<div class="list-rooms" id="scrollbar1">
+			<div class="action-bar">
+				<div class="custom-btn" title="Tạo phòng mới" id="triggerCreateRoom"><a href="/room/leave-room/<%= room.id%>">Leave</a></div>
+			</div>
+			<div class="search-bar">
+				<div id="rooms" class="list-room-box">
+		
+				</div>
+			</div>
+		</div>
+		<!-- ----------------------------------------------------------------------- -->
+		<!-- main frame -->
+		<div class="content-conversation">
+				
+			<div class="room-header">
+				<image class="avatar" src="/imageupload/<%= room.avatar%>">
+
+				<div class="name-room"><%= room.name%></div>
+				<div class="status-activity"></div>
+
+			</div>
+		
+
+			<div class="scroll-area-chat">
+				<div class="content">
+					<div class="introduction">	
+					</div>
+					
+
+					<div class="list-message">
+						<% messages.forEach( message => {%>
+							<% if (message.author._id.toString()===user._id.toString()) { %>
+								<div class="message">
+								  <div class="a-line-mess">
+									<% if (message.cate==0) { %>
+									<div class="m-bs-b-y">
+									  <span>
+										<%= message.content%>
+									  </span>
+									<% } else if (message.cate==2) {%>
+									  <div class="m-bs-b-y icon" >
+										<img src="/images/<%= message.content%>" alt="">
+									<%} else {%>
+									  <% let BaseURL = message.image.toString()%>
+									  <div class="m-bs-b-y imageBase64" >
+										  <img src="<%= BaseURL%>" alt="">
+									<%}%>
+									  <image class="avatar-mark" src="/imageupload/<%= message.author.avatar%>">
+
+									</div>
+								   
+								  </div>
+								</div>
+							  <% } else { %>
+								<div class="message">
+								  <div class="a-line-mess">
+									<div class="author" style="text-align: left;"><%= message.author.name %></div>
+									<% if (message.cate==0) { %>
+									  <div class="m-bs-fr-other-ple">
+										<span>
+										  <%= message.content%>
+										</span>
+									  <% } else if (message.cate==2) {%>
+										<div class="m-bs-fr-other-ple icon" >
+										  <img src="/images/<%= message.content%>" alt="">
+									  <%} else {%>
+										<% let BaseURL = message.image.toString()%>
+										<div class="m-bs-fr-other-ple imageBase64" >
+											<img src="<%= BaseURL%>" alt="">
+									  <%}%>
+									  <image class="avatar-mark" src="/imageupload/<%= message.author.avatar%>">
+
+									</div>
+								  </div>
+								</div>
+							  <% }%>
+						<% }) %>
+					</div>
+
+
+					
+				</div>
+				<div class="bar-type-message">
+					<div class="choose-file">
+						<div class="fake-b"><i class="fa fa-image"></i></div>
+						<input type="file">
+					</div>
+					<input id="type-message" type="text" name="message" placeholder="Nhập tin nhắn...">
+					<button id="comment-submit"><i class="fa fa-send"></i></button>
+				</div>
+				<div class="bar-view-image-selected">
+					<img src="" id="imagecrprvresult">
+					<div class="send-image" id="sendImagecrprresult">
+					  <i class="fa fa-send"></i>
+					</div>
+				  </div>
+			</div>
+		</div>
+		<!-- --------------------------------------------------------------------------------- -->
+
+	</div>
+	<div class="video-call">
+		<div class="btn-close-video-call"><i class="fa fa-close"></i></div>
+		<video id="localStream" width="400" controls></video>
+		<br /><br />
+		<video  id="remoteStream" width="400" controls></video>
+		<br /><br />
+	</div>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="/chat/vendor/bootstrap.js"></script>
+<script type="text/javascript" src="/chat/vendor/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="/chat/js/room.js"></script>
+<script type="text/javascript" src="/chat/js/header.js"></script>
+</html>
+<script>
+	$(document).on("click", ".btn-close-video-call", function(){
+		$(".video-call").hide();
+	  $("#localStream").hide()
+	  $("#remoteStream").hide()
+	})
+</script>
+<script>
+	$(document).ready(function(){
+	  $(".video-call").hide();
+	  $("#localStream").hide()
+	  $("#remoteStream").hide()
+
+	});
+	</script>
+
+<script>
+	const userId = "<%- user._id %>";
+	
+	const roomId = '<%= room._id %>';
+	const hosts = $(location).attr('host')
+
+	const socket = io.connect('https://phong-socket.herokuapp.com', { query: `userId=${userId}` });
+
+
+	const peer = new Peer({key: 'peerjs', host: 'phong-socket.herokuapp.com', secure: true, port: 443});
+	peer.on('open', function(id) {
+	socket.emit('room', { roomId, id})
+
+	});
+
+	peer.on('disconnect', (client) => { 
+		$(".video-call").hide();
+	  $("#localStream").hide()
+	  $("#remoteStream").hide()
+	});
+	
+	const message = (e) => {
+		e.preventDefault()
+		const message = document.getElementById('type-message')
+		const value = message.value
+		if (value) {
+			socket.emit('message', {
+				content: value,
+				roomId: roomId,
+			})
+			message.value = ''
+		}
+	}
+
+	if (document.getElementById('comment-submit')) {
+		document.getElementById('comment-submit').addEventListener('click', message)
+	}
+
+	socket.on('user-online', listUserOnline => {
+		listUserOnline.forEach((data) => {
+			const { avatar, name, peerID} = data
+
+			$('.list-room-box').append(
+					 `<div class="row-room ">
+						<image class="avatar-room" src="/imageupload/${avatar}">
+						
+						<div class="name-room">
+							<div class="name">
+								<li id="${peerID}" style="margin-top: 15px;">${name} <span aria-label="Đang hoạt động" style="background: rgb(66, 183, 42); border-radius: 50%; display: inline-block; height: 6px; margin-left: 4px; width: 6px;"></span></li>
+								
+							</div>
+						</div>
+					</div>`)
+		})
+	} )
+	
+	socket.on('out-room', listUserOnline => {
+		listUserOnline.forEach((data) => {
+			console.log(data);
+			const { avatar, name, peerID} = data
+
+			$('.list-room-box').append(
+					 `<div class="row-room ">
+						<image class="avatar-room" src="/imageupload/${avatar}">
+						
+						<div class="name-room">
+							<div class="name">
+								<li id="${peerID}" style="margin-top: 15px;">${name} <span aria-label="Đang hoạt động" style="background: rgb(66, 183, 42); border-radius: 50%; display: inline-block; height: 6px; margin-left: 4px; width: 6px;"></span></li>
+								
+							</div>
+						</div>
+					</div>`)
+		})
+	} )
+
+	socket.on('newMessage', ({message}) => {
+		
+		const newNode = renderMessage(message)
+	$('.list-message').append(newNode)
+		
+	})
+
+	socket.on('send-message-image', ({image}) => {
+		$('.container .content-conversation .scroll-area-chat  .bar-view-image-selected').css({'display': 'none'});
+		$('#imagecrprvresult').attr({'src': ""});
+		const newNode = renderMessage(image)
+	$('.list-message').append(newNode)
+		
+	})
+	
+
+	function openStream() {
+    const config = { audio: true, video: true };
+    return navigator.mediaDevices.getUserMedia(config);
+	}
+
+	function playStream(idVideoTag, stream) {
+		const video = document.getElementById(idVideoTag);
+		video.srcObject = stream;
+		video.play();
+	}
+
+	peer.on('call', call => {
+		$(".video-call").show();
+		$("#localStream").show()
+		$("#remoteStream").show()
+		openStream()
+		.then(stream => {
+			call.answer(stream);
+			playStream('localStream', stream);
+			call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+		});
+	});
+
+	$('#rooms').on('click', 'li', function() {
+		$(".video-call").show();
+		$("#localStream").show()
+		$("#remoteStream").show()
+
+
+		const id = $(this).attr('id');
+		openStream()
+		.then(stream => {
+			playStream('localStream', stream);
+			const call = peer.call(id, stream);
+			call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+		});
+
+});
+
+
+var imageReader = new FileReader();
+ function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.container .content-conversation .scroll-area-chat  .bar-view-image-selected').css({'display': 'table'});
+					$('#imagecrprvresult').attr({'src': e.target.result});
+			}
+			reader.readAsDataURL(input.files[0]);
+			imageReader= reader;
+		}
+	}
+	$(document).on('click', '.container .content-conversation .scroll-area-chat .bar-view-image-selected .send-image', function () {
+		const idRoom = $('.content-conversation .room-header').attr('idRoomCurrent');
+		const data = {
+			cate : 1,
+			roomId : roomId,
+			image : imageReader.result
+		}
+		socket.emit('send-image', data);
+	})
+
+	
+
+	$(document).on('change','.container .content-conversation .scroll-area-chat .bar-type-message .choose-file input[type="file"]', function() {	
+		readURL(this);
+	});
+
+	function renderMessage(data) {
+	if(data.author._id.toString() !== userId.toString()) {
+		if(data.cate === '0'){
+			const html = '<div class="message"><div class="a-line-mess">'+
+			'<div class="author" style="text-align: left;">'+data.author.name+'</div>'
+			+'<div class="m-bs-fr-other-ple"><span>'+data.content+'</span>'+
+			'<div class="avatar-mark" style="background-image: url(/imageupload/'+data.author.avatar+');"></div></div></div>';
+			return html;
+		} else {
+			const html = '<div class="message"><div class="a-line-mess">'+
+			'<div class="author" style="text-align: left;">'+data.author.name+'</div>'
+			+'<div class="m-bs-fr-other-ple imageBase64"><img src="'+data.image+'"/>'+
+			'<div class="avatar-mark" style="background-image: url(/imageupload/'+data.author.avatar+');"></div></div></div>';
+			return html;
+		}
+	} else  {
+		if(data.cate === '0') {
+			const html = '<div class="message"><div class="a-line-mess"><div class="m-bs-b-y"><span>'+data.content+'</span>'
+			+'<div class="avatar-mark" style="background-image: url(/imageupload/'+data.author.avatar+');"></div></div></div></div>';
+			return html;
+		} else  {
+			const html = '<div class="message"><div class="a-line-mess"><div class="m-bs-b-y imageBase64"><img src="'+data.image+'"/>'
+			+'<div class="avatar-mark" style="background-image: url(/imageupload/'+data.author.avatar+');"></div></div></div></div>';
+			return html;
+		}
+	}
+	
+}
+
+</script>

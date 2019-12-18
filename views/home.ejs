@@ -1,0 +1,68 @@
+<%- include('header.ejs')%>
+
+  <body>
+    <div>
+      <div id="div1" class="mx-auto" style="width: 20% !important;" >
+        <button onclick="location.href='/room/show'" type="button" class="infor btn btn-info">Join To Room</button>
+      </div>
+      <div id="div2" class="mx-auto" style="width: 20% !important;">
+        <button id="show" type="button" class="join btn btn-warning">Create Room</button>
+      </div>
+      <div id="div3" class="mx-auto" style="width: 20% !important;">
+        <button onclick="location.href='/room/your-room'" type="button" class="out btn btn-danger">Your Room</button>
+      </div>
+      <div id="div3" class="mx-auto" style="width: 20% !important;">
+          <button onclick="location.href='/room/room-joined'" type="button" class="out btn btn-success">Room Joined</button>
+        </div>
+    </div>
+
+    <div id="login" class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <form action="/room/create" method="POST"  class="login100-form validate-form" enctype="multipart/form-data">
+        <span class="login100-form-title p-b-49">
+          Create Room
+        </span>
+
+        <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is reauired">
+          <span class="label-input100">Name</span>
+          <input class="input100" type="text" name="name" placeholder="Type Name">
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <span class="label-input100">Image</span>
+          <input type="file" id="hinh" value="" required="required" class="input100" name="avatar">
+          <span class="focus-input100" data-symbol="&#xf190;"></span>
+        </div>
+       
+        
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn">
+              Create
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+    <script>
+      $(document).ready(function(){
+        $("#login").hide()
+        $("#show").click(function(){
+        $("#login").show(100)
+        });
+      });
+      </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+    

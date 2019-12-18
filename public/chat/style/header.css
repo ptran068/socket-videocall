@@ -1,0 +1,263 @@
+
+body{
+
+}
+.header {
+	width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    box-shadow: 1px -4px 17px 0px #b3b1b1;
+    transition: 1s;
+}
+
+.header .block-hu-user {
+	float: right;
+	width: 220px;
+	height: 50px;
+	line-height: 40px;
+	padding-left: 30px;
+	padding-top: 5px;
+}
+.header .block-hu-user .avatar {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	float: left;
+	margin: auto;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.header .block-hu-user .user-name{
+	color:  #022938;
+	float: left;
+	font-size: 90%;
+
+}
+
+.header .block-hu-user .menu-right-dropdown{
+	position: absolute;
+	z-index: 900;
+	top: 55px;
+	right: 5px;
+	width: 200px;
+	border-radius: 10px;
+	background-color: white;
+    box-shadow: 0px 4px 14px 2px #b4b1bc;
+    display: none;
+    transition: 0.8s;
+}
+.header .block-hu-user .menu-right-dropdown .content-dropdown-menu{
+	margin: 0px;
+	padding: 5px;
+}
+
+.header .block-hu-user .menu-right-dropdown .triangle{
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    width: 13px;
+    height: 10px;
+    position: absolute;
+    top: -10px;
+    right: 40px;
+    z-index: 1000;
+    background-color: white;
+
+}
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu{
+	list-style: none;
+	padding-left: 10px;
+	border-bottom: 0.5px solid #ececec;
+	display: block;
+	text-align: center;
+}
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-1{
+	list-style: none;
+	padding-left: 10px;
+	border-bottom: 0.5px solid #ececec;
+	display: block;
+	text-align: center;
+}
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-2{
+	list-style: none;
+	padding-left: 10px;
+	display: block;
+	text-align: center;
+}
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu:hover{
+	background-color: #ececec;
+}
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-2:hover{
+	background-color: #ececec;
+}
+
+.header .block-hu-user .menu-right-dropdown  a{
+	text-decoration: none;
+	color :black;
+}
+
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-1 .user-avatar div{
+	height: 98px;
+	height: 98px;
+	border-radius: 50%;
+	background-color:#000000c7;
+	line-height: 98px;
+	text-align: center;
+	color: orange;
+	opacity: 0;
+	transition: 0.6s;
+}
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-1 .user-avatar{
+	height: 100px;
+	width: 100px;
+	margin: 5px;
+	border-radius: 50%;
+	border: 2px solid  #022938;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.header .block-hu-user .menu-right-dropdown .item-dropdown-menu-1 .user-avatar div:hover{
+	opacity: 1;
+}
+
+.header .menu-bar{
+	/*width: 400px;*/
+	height: 50px;
+	line-height: 50px;
+	float: left;
+	padding-left: 20px;
+}
+.header .menu-bar .list-item {
+	padding: 0px;
+}
+.header .menu-bar .list-item .item{
+	list-style: none;
+	height: 50px;
+	line-height: 50px; 
+	float: left;
+	margin-right: 20px;
+	color: white;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-size: 90%;
+	text-align: center;
+}
+.header .menu-bar .list-item .item a{
+	text-decoration: none;
+	color:#022938;
+	transition: 0.8s;
+}
+.header .menu-bar .list-item .item .btn-create-room{
+	height: 50px;
+	box-sizing: border-box;
+}
+
+.header .menu-bar .list-item .item .btn-create-room .cycle-plus{
+	font-size: 130%;
+	float: left;
+}
+
+.header .menu-bar .list-item .item:hover a{
+	color: #e78200;
+}
+
+.header .menu-bar .list-item .item .logo{
+	padding-top: 5px;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 120px;
+	height: 40px;
+}
+.header .menu-bar .list-item .activate {
+	border-top: 4px solid #e78200;
+	line-height: 44px;
+}
+.header .menu-bar .list-item .activate a{
+	color: #e78200;
+}
+
+.dialog{
+	width: 100%;
+	height: 100rem;
+	position: fixed;
+	z-index: 1002;
+	background-color: #00000099;
+	box-sizing: border-box;
+	padding-top: 100px;
+	top: 0px;
+	display: none;
+}
+.dialog .dialog-container {
+	height: 300px;
+	background-color: white;
+	border-radius: 20px;
+	position: relative;
+	padding: 0px;
+}
+.dialog .dialog-container .dialog-header{
+
+	width:100%;
+	height: 50px;
+	border-bottom: 0.5px solid #d6f4ff;
+	line-height: 50px;
+	text-align: center;
+
+}
+
+
+.dialog .dialog-container .dialog-content .btn-fake-choose-file{
+	position: absolute;
+	width: 30%;
+	height: 60px;
+	top: 100px;
+	left: 35%;
+	border: 2px solid orange;
+	border-radius: 30px;
+	text-align: center;
+	line-height: 60px;
+	color: orange;
+}
+.dialog .dialog-container .dialog-content .fileContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.dialog .dialog-container .dialog-content .fileContainer[type=file] {
+    cursor: inherit;
+    display: block;
+    height: 60px;
+    width: 30%;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    left: 35%;
+    background-color: red;
+    cursor: pointer;
+}
+
+.dialog .dialog-container .dialog-action{
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	height: 50px;
+	border-top:0.5px solid  #d6f4ff;
+	line-height: 50px;
+	padding-right: 20px;
+	padding-top: 5px;
+}
+
+.dialog .dialog-container .dialog-action .btn{
+	float: right;
+	margin-right: 5px;
+}
